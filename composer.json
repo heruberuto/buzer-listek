@@ -1,0 +1,56 @@
+{
+  "name": "heruberuto/buzerlistek",
+  "description": "Webová aplikace pro tvorbu a vyplňování buzer-lístku",
+  "keywords": [
+    "osobní motivace",
+    "buzer-lístek",
+    "prokrastinace"
+  ],
+  "homepage": "https://wa.toad.cz/~ullriher/",
+  "type": "project",
+  "license": "BSD-3-Clause",
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=5.4.0",
+    "yiisoft/yii2": "~2.0.5",
+    "bower-asset/bootstrap": "~4.0.0@beta",
+    "yiisoft/yii2-bootstrap": "2.1.x-dev",
+    "yiisoft/yii2-swiftmailer": "~2.0.0"
+  },
+  "require-dev": {
+    "yiisoft/yii2-debug": "~2.0.0",
+    "yiisoft/yii2-gii": "~2.0.0",
+    "yiisoft/yii2-faker": "~2.0.0",
+    "codeception/base": "^2.2.3",
+    "codeception/verify": "~0.3.1",
+    "codeception/specify": "~0.4.3"
+  },
+  "config": {
+    "process-timeout": 1800,
+    "fxp-asset": {
+      "installer-paths": {
+        "npm-asset-library": "vendor/npm",
+        "bower-asset-library": "vendor/bower"
+      }
+    }
+  },
+  "scripts": {
+    "post-create-project-cmd": [
+      "yii\\composer\\Installer::postCreateProject"
+    ]
+  },
+  "extra": {
+    "yii\\composer\\Installer::postCreateProject": {
+      "setPermission": [
+        {
+          "runtime": "0777",
+          "web/assets": "0777",
+          "yii": "0755"
+        }
+      ],
+      "generateCookieValidationKey": [
+        "config/web.php"
+      ]
+    }
+  }
+}
