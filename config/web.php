@@ -4,19 +4,20 @@ $params = require(__DIR__ . '/params.php');
 $db = require(__DIR__ . '/db.php');
 
 $config = [
-    'id' => 'basic',
+    'id' => 'buzer-listek',
+    'name' => 'Buzer-lístek',
+    'language' => 'cs-CZ',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'components' => [
         'request' => [
-            // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => 'F2vbXk-5pfq4LHamDv3HkrId_jpunOrp',
+            'cookieValidationKey' => 'UHnv9FtClfCSwwpOlnGOmRJCRj7HWPDb',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\models\User',
+            'identityClass' => 'app\models\dao\User',
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
@@ -39,14 +40,12 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
             ],
         ],
-        */
     ],
     'params' => $params,
 ];

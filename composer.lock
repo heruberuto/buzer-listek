@@ -424,12 +424,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "e661e05dc0871a17369b3f1e50ba1d723767cf3d"
+                "reference": "e2515eede8404451b8822012cd00ca1bb0319b36"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/e661e05dc0871a17369b3f1e50ba1d723767cf3d",
-                "reference": "e661e05dc0871a17369b3f1e50ba1d723767cf3d",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/e2515eede8404451b8822012cd00ca1bb0319b36",
+                "reference": "e2515eede8404451b8822012cd00ca1bb0319b36",
                 "shasum": ""
             },
             "require": {
@@ -516,7 +516,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2017-10-25T13:55:51+00:00"
+            "time": "2017-10-27 08:41:45"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -986,12 +986,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "2cba1de0fadd53bbd80db6962a27b85b25b35d26"
+                "reference": "012cf358fa417d409c70bafded4bdb0cc3ad852c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/2cba1de0fadd53bbd80db6962a27b85b25b35d26",
-                "reference": "2cba1de0fadd53bbd80db6962a27b85b25b35d26",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/012cf358fa417d409c70bafded4bdb0cc3ad852c",
+                "reference": "012cf358fa417d409c70bafded4bdb0cc3ad852c",
                 "shasum": ""
             },
             "require": {
@@ -1028,7 +1028,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2017-10-24T12:28:33+00:00"
+            "time": "2017-10-28 06:02:50"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -2438,12 +2438,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/browser-kit.git",
-                "reference": "01a9ebda07738c20e0d4935dc8e6934d3169d684"
+                "reference": "58a38941962e69476bf6e11ce13effc26120d2d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/browser-kit/zipball/01a9ebda07738c20e0d4935dc8e6934d3169d684",
-                "reference": "01a9ebda07738c20e0d4935dc8e6934d3169d684",
+                "url": "https://api.github.com/repos/symfony/browser-kit/zipball/58a38941962e69476bf6e11ce13effc26120d2d8",
+                "reference": "58a38941962e69476bf6e11ce13effc26120d2d8",
                 "shasum": ""
             },
             "require": {
@@ -2487,7 +2487,7 @@
             ],
             "description": "Symfony BrowserKit Component",
             "homepage": "https://symfony.com",
-            "time": "2017-10-24T14:12:06+00:00"
+            "time": "2017-10-28 16:49:05"
         },
         {
             "name": "symfony/console",
@@ -2673,12 +2673,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",
-                "reference": "62911460ad3ba2d5df0613bf9eef972803113135"
+                "reference": "8cc827ee34b27767110c6ba2f2efa899e8aa3be5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/62911460ad3ba2d5df0613bf9eef972803113135",
-                "reference": "62911460ad3ba2d5df0613bf9eef972803113135",
+                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/8cc827ee34b27767110c6ba2f2efa899e8aa3be5",
+                "reference": "8cc827ee34b27767110c6ba2f2efa899e8aa3be5",
                 "shasum": ""
             },
             "require": {
@@ -2721,7 +2721,7 @@
             ],
             "description": "Symfony DomCrawler Component",
             "homepage": "https://symfony.com",
-            "time": "2017-10-24T14:12:06+00:00"
+            "time": "2017-10-28 16:49:05"
         },
         {
             "name": "symfony/event-dispatcher",
