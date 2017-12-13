@@ -39,52 +39,63 @@ html {
     padding-bottom: 0.25rem;
 }
 
-#loginButton:hover, #loginButton:active, footer a{
+#loginButton:hover, #loginButton:active, footer a {
     color: #F02137;
 }
-footer a:hover{
+
+footer a:hover {
     color: #c51f2e;
 }
 
 .breadcrumb-wrapper {
     background: #e9ecef;
 }
-.form-group *{
+
+.form-group * {
     transition: .5s;
 }
-.form-group.has-danger *{
+
+.form-group.has-danger * {
     border-color: #F02137;
     color: #F02137;
 }
-.form-group.has-success *{
+
+.form-group.has-success * {
     border-color: #28a745;
     color: #28a745;
 }
-.table .thead-light th{
+
+.table .thead-light th {
     padding-top: 0.5rem;
     padding-bottom: 0;
 }
-.table .thead-light td{
+
+.table .thead-light td {
     padding-top: 0;
     padding-bottom: 0.5rem;
 }
-.table .thead-light th,.table .thead-light td{
+
+.table .thead-light th, .table .thead-light td {
     color: #495057;
     background-color: #e9ecef;
     border-color: #e9ecef;
 }
+
 .table-striped tbody tr:nth-of-type(odd) {
-    background-color: rgba(0, 0, 0, 0.025)!important;
+    background-color: rgba(0, 0, 0, 0.025) !important;
 }
+
 .table thead th {
     vertical-align: bottom;
     border-bottom: 2px solid #e9ecef;
 }
-#sign-up-form h3{
+
+#sign-up-form h3 {
     font-weight: normal;
     font-size: 2.5rem;
     margin-bottom: 2rem;
 }
+
 .form-control:focus {
     color: #495057;
     background-color: #fff;
@@ -92,12 +103,14 @@ footer a:hover{
     outline: none;
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
+
 .bg-red .form-control:focus {
     color: #495057;
     background-color: #fff;
     border: 1px solid rgba(0, 0, 0, 0.15) !important;
     box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.33) !important;
 }
+
 .has-success .form-control:focus {
     color: #495057;
     background-color: #fff;
@@ -105,10 +118,16 @@ footer a:hover{
     outline: none;
     box-shadow: 0 0 0 0.2rem rgba(0, 135, 32, 0.25);
 }
+
 .has-danger .form-control:focus {
     color: #495057;
     background-color: #fff;
     border-color: #F02137;
     outline: none;
     box-shadow: 0 0 0 0.2rem rgba(236, 46, 46, 0.25);
+}
+
+.emoticon {
+    float: right;
+    height: 1.5em;
 }

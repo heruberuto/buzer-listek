@@ -6,7 +6,7 @@ use app\models\dao\User;
 use yii\bootstrap\ActiveForm;
 use yii\bootstrap\Html;
 
-$this->title = 'My Yii Application';
+$this->title = 'Buzer-lístek';
 $this->params['fullWidth'] = true;
 ?>
 <div class="site-index">
@@ -15,19 +15,20 @@ $this->params['fullWidth'] = true;
             <div class="row">
                 <div class="col-lg-7">
                     <h1 class="display-3">Vítej!</h1>
-                    <p class="lead">You have successfully created your Yii-powered application.</p>
+                    <p class="lead">Buzer Lístek je jednoduchá metoda, která poslouží k budování návyků. Sepište si činnosti, které chcete dělat, třeba cvičit, zdravě jíst nebo více číst, a každý den kontrolujte jejich plnění. Získáte tak i podrobný zpětný přehled o plnění úkolů. S každým návykem, který se nám daří dělat, naše vůle sílí.</p>
                     <!--p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p-->
                 </div>
                 <div class="col-lg-5" style="">
                     <?php $form = ActiveForm::begin([
                         'id' => 'sign-up-form',
                         'layout' => 'horizontal',
+                        'enableAjaxValidation'=>true,
                         'fieldConfig' => [
                             'template' => "{label}<div class=\"col-md-9\">{input}{error}</div>",
                             'labelOptions' => ['class' => 'col-md-3 col-form-label'],
                         ]]); ?>
                     <h3>Nemáš účet? Založ si ho!</h3>
-                    <?= $form->field($signUpForm, 'email')->input('email', ['maxlength' => true, 'placeholder' => 'váš@e-mail.cz']) ?>
+                    <?= $form->field($signUpForm, 'email')->input('email', ['maxlength' => true, 'enableAjaxValidation' => true, 'placeholder' => 'váš@e-mail.cz']) ?>
                     <?= $form->field($signUpForm, 'password')->passwordInput(['maxlength' => true, 'placeholder' => 'alespoň 6 znaků']) ?>
                     <?= $form->field($signUpForm, 'password_repeat')->passwordInput(['maxlength' => true, 'placeholder' => 'shodné s předchozím']) ?>
                     <div class="row">

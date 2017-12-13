@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\models\forms\LoginForm;
 use app\models\forms\SignUpForm;
 use Yii;
+use yii\bootstrap\ActiveForm;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
@@ -62,6 +63,10 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $model = new SignUpForm();
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            return ActiveForm::validate($model);
+        }
         if ($model->load(Yii::$app->request->post()) && $model->signup()) {
             return $this->redirect(['/user/index']);
         }

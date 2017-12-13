@@ -4,14 +4,8 @@ $conf = YII_ENV == 'dev' ? $conf['dev'] : $conf['prod'];
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'pgsql:host=localhost;dbname=buzerlistek',
-    'username' => 'admin',
-    'password' => 'admin',
+    'dsn' => 'mysql:host='.$conf['host'].';dbname='.$conf['db'],
+    'username' => $conf['user'],
+    'password' => $conf['password'],
     'charset' => 'utf8',
-    'schemaMap' => [
-        'pgsql' => [
-            'class' => 'yii\db\pgsql\Schema',
-            'defaultSchema' => 'public' //specify your schema here
-        ]
-    ],
 ];
