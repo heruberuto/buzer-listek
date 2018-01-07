@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\dao\User;
 use app\models\forms\LoginForm;
 use app\models\forms\SignUpForm;
 use Yii;
@@ -13,6 +14,7 @@ use yii\web\Response;
 
 class SiteController extends Controller
 {
+
     /**
      * @inheritdoc
      */
@@ -52,6 +54,10 @@ class SiteController extends Controller
                 'class' => 'yii\captcha\CaptchaAction',
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
+            'auth' => [
+                'class' => 'yii\authclient\AuthAction',
+                'successCallback' => [$this, 'oAuthSuccess'],
+            ],
         ];
     }
 
@@ -62,6 +68,14 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        if(!Yii::$app->user->isGuest) {
+            return $this->actionDashboard();
+        }else{
+            return $this->actionSignUp();
+        }
+    }
+
+    private function actionSignUp(){
         $model = new SignUpForm();
         if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
             Yii::$app->response->format = Response::FORMAT_JSON;
@@ -122,8 +136,26 @@ class SiteController extends Controller
      *
      * @return string
      */
-    public function actionContact()
+    private function actionDashboard()
     {
         return $this->render('table');
+    }
+
+    /**
+     * This function will be triggered when user is successfuly authenticated using some oAuth client.
+     *
+     * @param yii\authclient\ClientInterface $client
+     * @return boolean|yii\web\Response
+     */
+    public function oAuthSuccess($client)
+    {
+        $email = ($client->getUserAttributes())['email'];
+        $user = User::findOne(['email' => $email]);
+        if ($user == null) {
+            $user = new User(['email' => $email, 'password' => Yii::$app->security->generateRandomString()]);
+            $user->save();
+        }
+        Yii::$app->session->setFlash('Byl jste úspěšně přihlášen přes Facebook');
+        return Yii::$app->user->login($user, 3600 * 24 * 30);
     }
 }

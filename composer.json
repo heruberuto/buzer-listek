@@ -15,7 +15,8 @@
     "yiisoft/yii2": "~2.0.5",
     "bower-asset/bootstrap": "~4.0.0@beta",
     "yiisoft/yii2-bootstrap": "2.1.x-dev",
-    "yiisoft/yii2-swiftmailer": "~2.0.0"
+    "yiisoft/yii2-swiftmailer": "~2.0.0",
+    "yiisoft/yii2-authclient": "*"
   },
   "require-dev": {
     "yiisoft/yii2-debug": "~2.0.0",

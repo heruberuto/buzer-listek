@@ -2,9 +2,10 @@
 
 /* @var $this yii\web\View */
 
-use app\models\dao\User;
+use yii\authclient\widgets\AuthChoice;
 use yii\bootstrap\ActiveForm;
 use yii\bootstrap\Html;
+use yii\helpers\Url;
 
 $this->title = 'Buzer-lístek';
 $this->params['fullWidth'] = true;
@@ -15,14 +16,17 @@ $this->params['fullWidth'] = true;
             <div class="row">
                 <div class="col-lg-7">
                     <h1 class="display-3">Vítej!</h1>
-                    <p class="lead">Buzer Lístek je jednoduchá metoda, která poslouží k budování návyků. Sepište si činnosti, které chcete dělat, třeba cvičit, zdravě jíst nebo více číst, a každý den kontrolujte jejich plnění. Získáte tak i podrobný zpětný přehled o plnění úkolů. S každým návykem, který se nám daří dělat, naše vůle sílí.</p>
+                    <p class="lead">Buzer Lístek je jednoduchá metoda, která poslouží k budování návyků. Sepište si
+                        činnosti, které chcete dělat, třeba cvičit, zdravě jíst nebo více číst, a každý den kontrolujte
+                        jejich plnění. Získáte tak i podrobný zpětný přehled o plnění úkolů. S každým návykem, který se
+                        nám daří dělat, naše vůle sílí.</p>
                     <!--p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p-->
                 </div>
                 <div class="col-lg-5" style="">
                     <?php $form = ActiveForm::begin([
                         'id' => 'sign-up-form',
                         'layout' => 'horizontal',
-                        'enableAjaxValidation'=>true,
+                        'enableAjaxValidation' => true,
                         'fieldConfig' => [
                             'template' => "{label}<div class=\"col-md-9\">{input}{error}</div>",
                             'labelOptions' => ['class' => 'col-md-3 col-form-label'],
@@ -35,6 +39,16 @@ $this->params['fullWidth'] = true;
                         <div class="col-md-3"></div>
                         <div class="col-md-9">
                             <?= Html::submitButton('Založit účet', ['class' => 'btn btn-success']) ?>
+                            <div class="float-right"><?php $authAuthChoice = AuthChoice::begin([
+                                    'baseAuthUrl' => ['site/auth'], 'autoRender' => false
+                                ]); ?>
+                                <?php foreach ($authAuthChoice->getClients() as $client): ?>
+                                    <?= $authAuthChoice->clientLink($client,
+                                        '<img src="' . Url::to(['/images/facebook.svg']) . '" alt="facebook"/>Přihlásit se přes facebook',
+                                        ['class' => 'btn btn-facebook']) ?>
+                                <?php endforeach; ?>
+                                <?php AuthChoice::end(); ?></div>
+
                         </div>
                     </div>
 

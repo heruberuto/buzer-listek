@@ -90,10 +90,8 @@ class User extends ActiveRecord implements IdentityInterface
     public function beforeSave($insert)
     {
         if (parent::beforeSave($insert)) {
-            if ($this->isNewRecord) {
-                $this->auth_key = Yii::$app->security->generateRandomString();
-                $this->password = Yii::$app->security->generatePasswordHash($this->password);
-            }
+            $this->auth_key = Yii::$app->security->generateRandomString();
+            $this->password = Yii::$app->security->generatePasswordHash($this->password);
             return true;
         }
         return false;
@@ -144,6 +142,6 @@ class User extends ActiveRecord implements IdentityInterface
 
     public function __toString()
     {
-        return Html::a($this->email,['/user/view','id'=>$this->id]);
+        return Html::a($this->email, ['/user/view', 'id' => $this->id]);
     }
 }

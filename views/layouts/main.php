@@ -25,6 +25,11 @@ if (!isset($this->params['fullWidth'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?=Url::to(['/images/favicons/'])?>/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?=Url::to(['/images/favicons/'])?>/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?=Url::to(['/images/favicons/'])?>/favicon-16x16.png">
+    <link rel="manifest" href="<?=Url::to(['/images/favicons/'])?>/manifest.json">
+    <link rel="mask-icon" href="<?=Url::to(['/images/favicons/'])?>/safari-pinned-tab.svg" color="#f02137">
     <meta name="theme-color" content="#F02238">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
@@ -77,7 +82,7 @@ if (!isset($this->params['fullWidth'])) {
 <footer class="footer">
     <div class="container">
         <span class="float-left">
-            &copy; <strong><a href="mailto:ullriher@fel.cvut.cz">Herbert Ullrich</a></strong> <?= date('Y') ?>
+             &copy; <strong><a href="http://bertik.net">Herbert Ullrich</a></strong> <?= date('Y') ?>
         </span>
         <span class="float-right text-muted"><?= Yii::powered() ?></span>
     </div>

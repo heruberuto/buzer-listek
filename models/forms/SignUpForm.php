@@ -7,7 +7,7 @@ use Yii;
 use yii\base\Model;
 
 /**
- * LoginForm is the model behind the login form.
+ * SignUpForm is the model behind the login form.
  *
  * @property User|null $user This property is read-only.
  */
@@ -25,7 +25,7 @@ class SignUpForm extends Model
         return [
             [['password_repeat', 'email', 'password'], 'required'],
             [['email'], 'unique', 'targetClass' => User::className()],
-            ['email', 'email'],
+            [['email'], 'email'],
             [['password'], 'string', 'min' => 6],
             ['password_repeat', 'compare', 'compareAttribute' => 'password', 'message' => "Hesla se neshodují"],
         ];

@@ -46,6 +46,18 @@ $config = [
             'rules' => [
             ],
         ],
+        'authClientCollection' => [
+            'class' => 'yii\authclient\Collection',
+            'clients' => [
+                'facebook' => [
+                    'class' => 'yii\authclient\clients\Facebook',
+                    'authUrl' => 'https://www.facebook.com/dialog/oauth?display=popup',
+                    'clientId' => '426228351149029',
+                    'clientSecret' => 'a3aefe599d9cb25c9bec6d46eef6768d',
+                    'attributeNames' => ['email',],
+                ],
+            ],
+        ],
     ],
     'params' => $params,
 ];
