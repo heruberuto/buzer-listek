@@ -11,12 +11,15 @@
   "license": "BSD-3-Clause",
   "minimum-stability": "dev",
   "require": {
-    "php": ">=5.4.0",
+    "php": ">=7.0.0",
     "yiisoft/yii2": "~2.0.5",
-    "bower-asset/bootstrap": "~4.0.0@beta",
+    "FortAwesome/Font-Awesome": "*",
+    "npm-asset/bootstrap": "4.0.0-beta.3",
     "yiisoft/yii2-bootstrap": "2.1.x-dev",
     "yiisoft/yii2-swiftmailer": "~2.0.0",
-    "yiisoft/yii2-authclient": "*"
+    "yiisoft/yii2-authclient": "*",
+    "kartik-v/yii2-date-range": "dev-master",
+    "himiklab/yii2-sortable-grid-view-widget" : "*"
   },
   "require-dev": {
     "yiisoft/yii2-debug": "~2.0.0",

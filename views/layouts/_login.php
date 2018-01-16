@@ -11,14 +11,6 @@ $model = new LoginForm();
 
 ?>
 
-    <!--form class="form-inline my-2 my-lg-0" method="post" action="<?= Url::to(['site/login']) ?>">
-        <input class="form-control mr-sm-2" type="email" placeholder="E-mail" aria-label="E-mail"<?= LoginForm::className() ?>>
-        <input class="form-control mr-sm-2" type="password" placeholder="Heslo" aria-label="Heslo">
-        <button class="btn btn-outline-light my-2 my-sm-0" type="submit" id="loginButton">
-            Přihlásit se
-        </button>
-    </form-->
-
 <?php $form = ActiveForm::begin([
     'id' => 'header-login-form',
     'action' => Url::to(['site/login']),

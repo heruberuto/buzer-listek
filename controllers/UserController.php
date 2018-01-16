@@ -39,6 +39,17 @@ class UserController extends Controller
         ];
     }
 
+    public function beforeAction($action)
+    {
+        if (!isset(Yii::$app->user->identity) || !Yii::$app->user->identity->has_admin_rights) {
+            Yii::$app->session->addFlash('danger', '<strong>Přístup zamítnut.</strong> Nemáte administrátorská práva.');
+            $this->redirect(Yii::$app->request->referrer ?: Yii::$app->homeUrl);
+            return false;
+        }
+        return parent::beforeAction($action);
+    }
+
+
     /**
      * Lists all User models.
      * @return mixed
@@ -47,7 +58,6 @@ class UserController extends Controller
     {
         $searchModel = new UserSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -67,20 +77,18 @@ class UserController extends Controller
     }
 
     /**
-     * Creates a new User model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
+     * Finds the User model based on its primary key value.
+     * If the model is not found, a 404 HTTP exception will be thrown.
+     * @param integer $id
+     * @return User the loaded model
+     * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionCreate()
+    protected function findModel($id)
     {
-        $model = new User();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if (($model = User::findOne($id)) !== null) {
+            return $model;
         } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
+            throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
 
@@ -114,21 +122,5 @@ class UserController extends Controller
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
-    }
-
-    /**
-     * Finds the User model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return User the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    protected function findModel($id)
-    {
-        if (($model = User::findOne($id)) !== null) {
-            return $model;
-        } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
-        }
     }
 }

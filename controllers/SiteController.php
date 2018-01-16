@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\dao\HabitList;
 use app\models\dao\User;
 use app\models\forms\LoginForm;
 use app\models\forms\SignUpForm;
@@ -50,10 +51,6 @@ class SiteController extends Controller
             'error' => [
                 'class' => 'yii\web\ErrorAction',
             ],
-            'captcha' => [
-                'class' => 'yii\captcha\CaptchaAction',
-                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
-            ],
             'auth' => [
                 'class' => 'yii\authclient\AuthAction',
                 'successCallback' => [$this, 'oAuthSuccess'],
@@ -68,21 +65,37 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        if(!Yii::$app->user->isGuest) {
-            return $this->actionDashboard();
-        }else{
+        if (!Yii::$app->user->isGuest) {
+            return $this->actionHabitList();
+        } else {
             return $this->actionSignUp();
         }
     }
 
-    private function actionSignUp(){
+    /**
+     * Displays about page.
+     *
+     * @return string
+     */
+    private function actionHabitList()
+    {
+        $model = HabitList::ongoing();
+        if ($model == null) {
+            Yii::$app->session->addFlash('info', '<strong>Vítej!</strong> Nemáš dnes nastaven žádný buzer-lístek. Vytvoř si ho!');
+            return $this->redirect(['/habit-list/']);
+        }
+        return $this->render('/habit-list/ongoing', ['model' => $model]);
+    }
+
+    private function actionSignUp()
+    {
         $model = new SignUpForm();
         if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
             Yii::$app->response->format = Response::FORMAT_JSON;
             return ActiveForm::validate($model);
         }
         if ($model->load(Yii::$app->request->post()) && $model->signup()) {
-            return $this->redirect(['/user/index']);
+            return $this->redirect(['/site/index']);
         }
         return $this->render('index', [
             'signUpForm' => $model,
@@ -130,15 +143,14 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
-
     /**
      * Displays about page.
      *
      * @return string
      */
-    private function actionDashboard()
+    public function actionDoc()
     {
-        return $this->render('table');
+        return $this->render('doc');
     }
 
     /**

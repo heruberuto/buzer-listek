@@ -4,6 +4,7 @@ namespace app\models\dao;
 
 use Yii;
 use yii\db\ActiveRecord;
+use yii\db\Query;
 use yii\helpers\Html;
 use yii\web\IdentityInterface;
 
@@ -14,9 +15,11 @@ use yii\web\IdentityInterface;
  * @property string $email
  * @property string $password
  * @property string $auth_key
- * @property string $retype_password
+ * @property string $created_at
+ * @property boolean $has_admin_rights
  *
- * @property Habit[] $habits
+ * @property integer $habitListsCount
+ * @property HabitList[] $habitLists
  */
 class User extends ActiveRecord implements IdentityInterface
 {
@@ -65,6 +68,7 @@ class User extends ActiveRecord implements IdentityInterface
             [['email', 'password'], 'string', 'max' => 64],
             [['email'], 'email'],
             [['email'], 'unique'],
+            [['has_admin_rights'], 'boolean'],
             [['password'], 'string', 'min' => 6],
             [['auth_key'], 'string', 'max' => 32],
         ];
@@ -76,11 +80,13 @@ class User extends ActiveRecord implements IdentityInterface
     public function attributeLabels()
     {
         return [
-            'id' => 'ID uživatele',
+            'id' => 'ID',
             'email' => 'E-mail',
             'password' => 'Heslo',
-            'auth_key' => 'Autorizační klíč',
-            'retype_password' => 'Heslo znovu'
+            'auth_key' => 'Autorizační klíč (Yii2)',
+            'created_at' => 'Čas registrace',
+            'has_admin_rights' => 'Má autorská práva',
+            'habitListsCount' => 'Buzer-lístků',
         ];
     }
 
@@ -100,9 +106,9 @@ class User extends ActiveRecord implements IdentityInterface
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getHabits()
+    public function getHabitLists()
     {
-        return $this->hasMany(Habit::className(), ['user_id' => 'id']);
+        return $this->hasMany(HabitList::className(), ['user_id' => 'id']);
     }
 
     /**
@@ -143,5 +149,10 @@ class User extends ActiveRecord implements IdentityInterface
     public function __toString()
     {
         return Html::a($this->email, ['/user/view', 'id' => $this->id]);
+    }
+
+    public function getHabitListsCount()
+    {
+        return Yii::$app->db->createCommand('SELECT count(*) FROM `habit_list` WHERE `user_id` = :id', ['id' => $this->id])->queryScalar();
     }
 }

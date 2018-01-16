@@ -12,10 +12,10 @@ echo Nav::widget([
     'options' => ['class' => 'navbar-nav  justify-content-end'],
     'activateParents' => true,
     'items' => [
-        ['label' => $user->email,'linkOptions' => ['aria-expanded' => 'false'],
+        [
+            'label' => $user->email, 'linkOptions' => ['aria-expanded' => 'false'],
             'items' => [
-                ['label' => 'Můj profil', 'url' => ['profile/index'],],
-                ['label' => 'Moje data', 'url' => ['measurement/index'],],
+                //['label' => 'Můj profil', 'url' => ['profile/index'],],
                 ['label' => 'Odhlásit se', 'url' => ['site/logout'], 'linkOptions' => ['data-method' => 'post']]
             ]
         ]

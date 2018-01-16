@@ -41,6 +41,7 @@ class LoginForm extends Model
         return [
             'email' => 'E-mail',
             'password' => 'Heslo',
+            'rememberMe' => 'Trvalé přihlášení'
         ];
     }
 

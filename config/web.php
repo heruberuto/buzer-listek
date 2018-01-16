@@ -2,6 +2,7 @@
 
 $params = require(__DIR__ . '/params.php');
 $db = require(__DIR__ . '/db.php');
+$facebook = parse_ini_file('facebook.ini');
 
 $config = [
     'id' => 'buzer-listek',
@@ -10,11 +11,34 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'components' => [
+        'assetManager' => [
+            'bundles' => [
+                'yii\bootstrap\BootstrapAsset' => [
+                    'sourcePath' => '@npm/bootstrap/dist',
+                    'css' => [
+                        'css/bootstrap.min.css'
+                    ],
+                ],
+                'yii\bootstrap\BootstrapPluginAsset' => [
+                    'sourcePath' => '@npm/bootstrap/dist',
+                    'js' => [
+                        'js/bootstrap.bundle.min.js'
+                    ],
+                    'depends' => ['yii\web\JqueryAsset']
+                ],
+            ],
+        ],
         'request' => [
             'cookieValidationKey' => 'UHnv9FtClfCSwwpOlnGOmRJCRj7HWPDb',
         ],
-        'cache' => [
-            'class' => 'yii\caching\FileCache',
+        'formatter' => [
+            'timeZone' => 'UTC',
+            'dateFormat' => 'dd.MM.yyyy',
+            'datetimeFormat' => 'dd.MM.yyyy HH:mm',
+            'timeFormat' => 'HH:mm',
+            'decimalSeparator' => ',',
+            'thousandSeparator' => ' ',
+            'currencyCode' => 'EUR',
         ],
         'user' => [
             'identityClass' => 'app\models\dao\User',
@@ -52,9 +76,9 @@ $config = [
                 'facebook' => [
                     'class' => 'yii\authclient\clients\Facebook',
                     'authUrl' => 'https://www.facebook.com/dialog/oauth?display=popup',
-                    'clientId' => '426228351149029',
-                    'clientSecret' => 'a3aefe599d9cb25c9bec6d46eef6768d',
-                    'attributeNames' => ['email',],
+                    'clientId' => $facebook['clientId'],
+                    'clientSecret' => $facebook['clientSecret'],
+                    'attributeNames' => ['email'],
                 ],
             ],
         ],
