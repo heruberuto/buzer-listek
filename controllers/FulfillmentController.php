@@ -8,6 +8,7 @@ use himiklab\sortablegrid\SortableGridAction;
 use Yii;
 use app\models\dao\Habit;
 use yii\data\ActiveDataProvider;
+use yii\filters\AccessControl;
 use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -15,7 +16,7 @@ use yii\filters\VerbFilter;
 use yii\web\Response;
 
 /**
- * HabitController implements the CRUD actions for Habit model.
+ * FulfillmentController implements the update/create action for Habit model.
  */
 class FulfillmentController extends Controller
 {
@@ -25,6 +26,15 @@ class FulfillmentController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -34,13 +44,22 @@ class FulfillmentController extends Controller
         ];
     }
 
+    /**
+     * Sets a response format to JSON
+     * @param \yii\base\Action $action
+     * @return bool
+     */
     public function beforeAction($action)
     {
         Yii::$app->response->format = Response::FORMAT_JSON;
         return parent::beforeAction($action);
     }
 
-
+    /**
+     * Creates/updates a Fulfillment object given through $_POST and saves it in the database
+     * @see Fulfillment
+     * @return array|Response
+     */
     public function actionSave()
     {
         $p = Yii::$app->request->post('Fulfillment');

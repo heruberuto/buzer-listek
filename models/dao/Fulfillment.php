@@ -37,6 +37,10 @@ class Fulfillment extends \yii\db\ActiveRecord
 
     private $_habit;
 
+    /**
+     * Fulfillment constructor.
+     * @param array $config
+     */
     public function __construct($config = [])
     {
         if ($config instanceof Habit) {
@@ -56,6 +60,13 @@ class Fulfillment extends \yii\db\ActiveRecord
         return 'fulfillment';
     }
 
+    /**
+     * Either fetches an existent instance of Fulfillment class from database (related to given day and habit)
+     * or creates it with corresponding fields prefilled.
+     * @param $habit
+     * @param null $day
+     * @return Fulfillment|null|static
+     */
     public static function getInstance($habit, $day = null)
     {
         if ($day == null) {
@@ -109,6 +120,8 @@ class Fulfillment extends \yii\db\ActiveRecord
     }
 
     /**
+     * Parses a time from given attribute. Adds an error in case the parsing failed.
+     *
      * @param $attribute string Name of field to be validated
      * @param $params array Unused. Pro forma.
      * @param $validator object Unused. Pro forma.
@@ -146,6 +159,8 @@ class Fulfillment extends \yii\db\ActiveRecord
     }
 
     /**
+     * ManyToOne relation to the Habit records.
+     * @see Habit
      * @return \yii\db\ActiveQuery
      */
     public function getHabit()
@@ -155,6 +170,7 @@ class Fulfillment extends \yii\db\ActiveRecord
 
 
     /**
+     * Renders a HTML field correspondingly to the data type expected by the condition.
      * @param $field ActiveField
      * @return ActiveField
      */
@@ -171,6 +187,11 @@ class Fulfillment extends \yii\db\ActiveRecord
         }
     }
 
+    /**
+     * Outputs a TD HTML tag representing this object 1:1. Assigns all the important object field values to it in
+     * a JS friendly manner.
+     * @return string TD tag representing this object
+     */
     public function toCell()
     {
         $condition = $this->lazyHabit->condition;
@@ -195,6 +216,12 @@ class Fulfillment extends \yii\db\ActiveRecord
         );
     }
 
+    /**
+     * Outputs the IMG tag of an appropriate emoticon evaluating this fulfillment
+     * @param $evaluation
+     * @param bool $centered
+     * @return string
+     */
     public function getEmoticon($evaluation, $centered = false)
     {
         if (!array_key_exists($evaluation, self::EVALUATION_REPRESENTATION)) {
@@ -205,11 +232,19 @@ class Fulfillment extends \yii\db\ActiveRecord
          class="emoticon' . ($centered ? ' centered' : '') . '" alt="' . $representation[0] . '"/>';
     }
 
+    /**
+     * Outputs the bound condition in a human-readable format.
+     * @return string
+     */
     public function getConditionString()
     {
         return $this->lazyHabit->isGeneric() ? 'Všechny ostatní návyky jsou splněny, nebo nesplněny z objektivních důvodů.' : $this->lazyHabit->condition->__toString();
     }
 
+    /**
+     * Gets the note of the habit bound. Used for the user-friendliness of modals in the habit table.
+     * @return string
+     */
     public function getHabitNote()
     {
         return $this->lazyHabit->note != null ? Html::encode($this->lazyHabit->note) . '<br/>' : '';

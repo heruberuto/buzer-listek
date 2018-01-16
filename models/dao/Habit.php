@@ -24,6 +24,9 @@ class Habit extends \yii\db\ActiveRecord
 {
     private $_condition;
 
+    /**
+     * @inheritdoc
+     */
     public function __construct($config = [])
     {
         if($config instanceof HabitList){
@@ -42,11 +45,17 @@ class Habit extends \yii\db\ActiveRecord
         return 'habit';
     }
 
+    /**
+     * @inheritdoc
+     */
     public static function find()
     {
         return parent::find()->orderBy(['order' => SORT_ASC]);
     }
 
+    /**
+     * @inheritdoc
+     */
     public function behaviors()
     {
         return [
@@ -89,16 +98,26 @@ class Habit extends \yii\db\ActiveRecord
         ];
     }
 
+    /**
+     * @inheritdoc
+     */
     public function load($data, $formName = null)
     {
         return $this->condition->load($data) && parent::load($data, $formName);
     }
 
+    /**
+     * @inheritdoc
+     */
     public function validate($attributeNames = null, $clearErrors = true)
     {
         return $this->condition->validate() && parent::validate($attributeNames, $clearErrors);
     }
 
+    /**
+     * Wraps the condition attribute to a json before validation.
+     * @inheritdoc
+     */
     public function beforeValidate()
     {
         $this->condition_json = json_encode($this->condition);
@@ -107,6 +126,7 @@ class Habit extends \yii\db\ActiveRecord
 
 
     /**
+     * OneToMany relation to Fulfillment records
      * @return \yii\db\ActiveQuery
      */
     public function getFulfillments()
@@ -115,6 +135,7 @@ class Habit extends \yii\db\ActiveRecord
     }
 
     /**
+     * ManyToOne relation to Habitlist record
      * @return \yii\db\ActiveQuery
      */
     public function getHabitList()

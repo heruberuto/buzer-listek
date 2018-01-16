@@ -1,16 +1,17 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: herbe
- * Date: 13.01.2018
- * Time: 18:23
- */
 
 namespace app\assets;
 
 
 use yii\web\AssetBundle;
 
+/**
+ *
+ * Class FontAwesomeAsset
+ * Loads the Font awesome dependency
+ * @package app\assets
+ * @author Herbert Ullrich <ja@bertik.net>
+ */
 class FontAwesomeAsset extends AssetBundle
 {
     public $sourcePath = '@vendor/fortawesome/font-awesome';

@@ -1,20 +1,20 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: herbe
- * Date: 13.01.2018
- * Time: 18:37
- */
 
 namespace app\components;
 
 
 use Yii;
 
+/**
+ * Class ActionColumn
+ * @package app\components
+ * @author Herbert Ullrich <ja@bertik.net>
+ */
 class ActionColumn extends \yii\grid\ActionColumn
 {
     /**
      * Initializes the default button rendering callbacks.
+     * Adds altering between glyphicons and font awesome
      */
     protected function initDefaultButtons()
     {

@@ -121,7 +121,8 @@ class Condition extends Model implements JsonSerializable
     }
 
     /**
-     * Given a Fulfillment object, compute its success rate
+     * Given a Fulfillment object, compute its success rate.
+     *
      * @param $fulfillment Fulfillment
      * @param bool $computeWeekly whether weekly condition should be evaluated over the entire week or just today.
      * @return int
@@ -151,9 +152,13 @@ class Condition extends Model implements JsonSerializable
 
 
     /**
-     * @param $habitList HabitList
-     * @param $day
-     * @return int
+     * Specific case of $this->evaluate(). In order to satisfy the condition of "Potential of the day", all the smileys
+     * in such a row must be either green or blue. Furthermore, the weekly challenges must be completed already.
+     * This method performs such a check.
+     *
+     * @param $habitList HabitList of all the habits to be satisfied
+     * @param $day string the requested day
+     * @return int whether the condition is SATISFIED, DISSATISFIED or EMpTY
      */
     public function evaluatePotential($habitList, $day)
     {
@@ -172,8 +177,10 @@ class Condition extends Model implements JsonSerializable
 
 
     /**
-     * @param $fulfillment Fulfillment
-     * @return int
+     * Evaluates whether the weekly challenge has been completed as planned.
+     *
+     * @param $fulfillment Fulfillment the today's value in Habit list (with relations to all the others)
+     * @return int whether the challenge has been already completed
      */
     public function evaluateWeekly($fulfillment)
     {
@@ -194,6 +201,14 @@ class Condition extends Model implements JsonSerializable
 
     }
 
+    /**
+     * Compare two values using a comparator in a comparator field. Also the condition type is taken into account in order
+     * to compare time correctly.
+     *
+     * @param $a mixed
+     * @param $b mixed
+     * @return bool whether the comparison holds
+     */
     public function compare($a, $b)
     {
         if ($this->type == 'time') {

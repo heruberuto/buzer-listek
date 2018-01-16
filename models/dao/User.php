@@ -146,11 +146,9 @@ class User extends ActiveRecord implements IdentityInterface
         return Yii::$app->getSecurity()->validatePassword($password, $this->password);
     }
 
-    public function __toString()
-    {
-        return Html::a($this->email, ['/user/view', 'id' => $this->id]);
-    }
-
+    /**
+     * @return int the number of habitLists bound to this user
+     */
     public function getHabitListsCount()
     {
         return Yii::$app->db->createCommand('SELECT count(*) FROM `habit_list` WHERE `user_id` = :id', ['id' => $this->id])->queryScalar();

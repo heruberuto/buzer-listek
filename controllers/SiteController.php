@@ -87,6 +87,10 @@ class SiteController extends Controller
         return $this->render('/habit-list/ongoing', ['model' => $model]);
     }
 
+    /**
+     * Sign up action. Called by index action in the case user isn't logged in
+     * @return array|string|Response
+     */
     private function actionSignUp()
     {
         $model = new SignUpForm();
@@ -144,7 +148,7 @@ class SiteController extends Controller
         return $this->render('about');
     }
     /**
-     * Displays about page.
+     * Displays the documentation page
      *
      * @return string
      */

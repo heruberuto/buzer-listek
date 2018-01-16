@@ -39,6 +39,11 @@ class UserController extends Controller
         ];
     }
 
+    /**
+     * Expels any non-admin requesting action from this controller before rendering it.
+     * @param \yii\base\Action $action
+     * @return bool
+     */
     public function beforeAction($action)
     {
         if (!isset(Yii::$app->user->identity) || !Yii::$app->user->identity->has_admin_rights) {

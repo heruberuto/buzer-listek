@@ -10,6 +10,7 @@ namespace app\assets;
 use yii\web\AssetBundle;
 
 /**
+ * Loads front-end dependencies. Called for every action.
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
  */
