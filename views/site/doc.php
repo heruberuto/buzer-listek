@@ -93,7 +93,7 @@ function fig($src, $alt)
     <h3>Instalace a použitý software</h3>
     <p>Pr&aacute;ce běž&iacute; na <strong>yii2</strong> frameworku. Ke spr&aacute;vn&eacute;mu chodu stač&iacute; st&aacute;hnout
         repozit&aacute;ř <a title="buzer-listek" href="https://github.com/heruberuto/buzer-listek">https://github.com/heruberuto/buzer-listek</a>
-        pomoc&iacute; <strong>git clone</strong>.</p>
+        pomoc&iacute; <strong>git clone</strong> a uspokojit následující požadavky.</p>
     <p>Pro spr&aacute;vnou konfiguraci je nutn&eacute; vytvořit ve složce <strong>config</strong> soubor
         <strong>db.ini </strong>s n&aacute;sleduj&iacute;c&iacute;m obsahem:</p>
 
@@ -128,9 +128,9 @@ function fig($src, $alt)
         <li><a href="https://github.com/heruberuto/buzer-listek/tree/master/components">components</a> - pomocn&eacute; komponenty, glob&aacute;lně využ&iacute;van&eacute; tř&iacute;dy</li>
         <li><a href="https://github.com/heruberuto/buzer-listek/tree/master/models">models</a> - tř&iacute;dy uchov&aacute;vaj&iacute;c&iacute; proměnn&aacute; data. <a href="https://github.com/heruberuto/buzer-listek/tree/master/models/dao">models/dao</a> jsou aktivn&iacute; z&aacute;znamy reprezentuj&iacute;c&iacute; ř&aacute;dky různ&yacute;ch tabulek v datab&aacute;zi</li>
         <li><a href="https://github.com/heruberuto/buzer-listek/tree/master/views">views</a> - HTML &scaron;ablony formalizuj&iacute;c&iacute; v&yacute;pis dat uživateli a zad&aacute;n&iacute; dat uživatelem</li>
-        <li><a href="https://github.com/heruberuto/buzer-listek/tree/master/controllers">controllers</a> - cesta podstr&aacute;nky <strong>a/b</strong> je <strong>yii frameworkem</strong> ch&aacute;p&aacute;na jako vol&aacute;n&iacute; metody <strong>actionA</strong> tř&iacute;dy <strong>BController</strong> z tohoto bal&iacute;čku. Controllery tedy přiřazuj&iacute; požadavku uživatele patřičn&eacute; <strong>view</strong> a tomu dod&aacute;vaj&iacute; data př&iacute;slu&scaron;n&eacute;ho <strong>modelu</strong></li>
+        <li><a href="https://github.com/heruberuto/buzer-listek/tree/master/controllers">controllers</a> - cesta podstr&aacute;nky <strong>a/b</strong> je <strong>yii frameworkem</strong> ch&aacute;p&aacute;na jako vol&aacute;n&iacute; metody <strong>actionB</strong> tř&iacute;dy <strong>AController</strong> z tohoto bal&iacute;čku. Controllery tedy přiřazuj&iacute; požadavku uživatele patřičn&eacute; <strong>view</strong> a tomu dod&aacute;vaj&iacute; data př&iacute;slu&scaron;n&eacute;ho <strong>modelu</strong></li>
         <li><a href="https://github.com/heruberuto/buzer-listek/tree/master/www">www</a> - statick&yacute; obsah. Obr&aacute;zky, css a javascripty přidan&eacute; pro uživatelovo pohodl&iacute;. Aplikace tak&eacute; funguje bez nich.</li>
     </ol>
     <h4>PHPDoc dokumentace</h4>
-    <?=Html::a('Vygenerována pomocí PHPDocumentoru',['/doc/phpdoc'])?>
+    <?=Html::a('Vygenerována pomocí PHPDocumentoru',['/doc/phpdoc'])?>.
 </div>

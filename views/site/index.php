@@ -68,7 +68,7 @@ $this->params['fullWidth'] = true;
                         představovat
                         rizikový fenomén pro duševní zdraví.</p>
                     <p><a class="btn btn-light btn-wiki" href="https://cs.wikipedia.org/wiki/Prokrastinace"><img
-                                    src="images/wikipedia.svg" alt="Logo Wikipedie"/> Více na Wikipedii</a>
+                                    src="<?=Url::to(['/images/wikipedia.svg'])?>" alt="Logo Wikipedie"/> Více na Wikipedii</a>
                     </p>
                 </div>
                 <div class="col-lg-4">
@@ -80,7 +80,7 @@ $this->params['fullWidth'] = true;
                         zvýšit <strong>produktivitu</strong>.</p>
 
                     <p><a class="btn btn-light btn-wiki" href="https://cs.wikipedia.org/wiki/Zvyk"><img
-                                    src="images/wikipedia.svg" alt="Logo Wikipedie"/> Více na Wikipedii</a></p>
+                                    src="<?=Url::to(['/images/wikipedia.svg'])?>" alt="Logo Wikipedie"/> Více na Wikipedii</a></p>
                 </div>
                 <div class="col-lg-4">
                     <h2>Buzer-lístek</h2>
@@ -95,7 +95,7 @@ $this->params['fullWidth'] = true;
 
                     <p><a class="btn btn-light btn-forbes"
                           href="http://www.forbes.cz/10-zasad-jak-posilovat-svou-vuli/">
-                            <img src="images/forbes.svg" alt="Logo Forbesu"/> Více na Forbes.cz</a></p>
+                            <img src="<?=Url::to(['/images/forbes.svg'])?>" alt="Logo Forbesu"/> Více na Forbes.cz</a></p>
                 </div>
             </div>
         </div>

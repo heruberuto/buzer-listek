@@ -67,7 +67,7 @@ class FulfillmentController extends Controller
         $day = $p['day'];
         $model = Fulfillment::getInstance($habit, $day);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if (Yii::$app->user->id == $habit->habitList->user_id && $model->load(Yii::$app->request->post()) && $model->save()) {
             if (Yii::$app->request->isAjax) {
                 $result = ['status' => 1, 'cell' => $model->toCell()];
                 if (!$habit->isGeneric()) {
