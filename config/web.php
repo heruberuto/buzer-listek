@@ -2,31 +2,21 @@
 
 $params = require(__DIR__ . '/params.php');
 $db = require(__DIR__ . '/db.php');
-$facebook = parse_ini_file('facebook.ini');
+$facebook = parse_ini_file(__DIR__ . '/facebook.ini');
 
 $config = [
     'id' => 'buzer-listek',
     'name' => 'Buzer-lístek',
     'language' => 'cs-CZ',
     'basePath' => dirname(__DIR__),
+    'aliases' => [
+        '@bower' => '@vendor/bower-asset',
+        '@npm' => '@vendor/npm-asset',
+    ],
     'bootstrap' => ['log'],
     'components' => [
-        'assetManager' => [
-            'bundles' => [
-                'yii\bootstrap\BootstrapAsset' => [
-                    'sourcePath' => '@npm/bootstrap/dist',
-                    'css' => [
-                        'css/bootstrap.min.css'
-                    ],
-                ],
-                'yii\bootstrap\BootstrapPluginAsset' => [
-                    'sourcePath' => '@npm/bootstrap/dist',
-                    'js' => [
-                        'js/bootstrap.bundle.min.js'
-                    ],
-                    'depends' => ['yii\web\JqueryAsset']
-                ],
-            ],
+        'cache' => [
+            'class' => 'yii\caching\FileCache',
         ],
         'request' => [
             'cookieValidationKey' => 'UHnv9FtClfCSwwpOlnGOmRJCRj7HWPDb',
@@ -48,7 +38,7 @@ $config = [
             'errorAction' => 'site/error',
         ],
         'mailer' => [
-            'class' => 'yii\swiftmailer\Mailer',
+            'class' => 'yii\symfonymailer\Mailer',
             // send all mails to a file by default. You have to set
             // 'useFileTransport' to false and configure a transport
             // for the mailer to send real emails.

@@ -8,7 +8,7 @@
 use app\assets\AppAsset;
 use app\models\dao\HabitList;
 use app\widgets\Alert;
-use yii\bootstrap\Nav;
+use yii\bootstrap4\Nav;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\Breadcrumbs;

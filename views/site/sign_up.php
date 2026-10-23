@@ -1,11 +1,11 @@
 <?php
 
 /* @var $this yii\web\View */
-/* @var $form yii\bootstrap\ActiveForm */
+/* @var $form yii\bootstrap4\ActiveForm */
 
 /* @var $model app\models\User */
 
-use yii\bootstrap\ActiveForm;
+use yii\bootstrap4\ActiveForm;
 use yii\helpers\Html;
 
 $this->title = 'Sign up';
@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= $form->field($model, 'retype_password')->passwordInput() ?>
 
     <?= $form->field($model, 'rememberMe')->checkbox([
-        'template' => "<div class=\"col-lg-offset-1 col-lg-3\">{input} {label}</div>\n<div class=\"col-lg-8\">{error}</div>",
+        'template' => "<div class=\"col-lg-offset-1 col-lg-3\"><div class=\"custom-control custom-checkbox\">{input} {label}</div></div>\n<div class=\"col-lg-8\">{error}</div>",
     ]) ?>
 
     <div class="form-group">

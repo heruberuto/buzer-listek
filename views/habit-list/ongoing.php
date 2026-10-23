@@ -6,7 +6,7 @@
  * Time: 23:30
  */
 
-use yii\bootstrap\Html;
+use yii\bootstrap4\Html;
 use yii\helpers\Url;
 
 /** @var $this \yii\web\View */

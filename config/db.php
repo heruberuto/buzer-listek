@@ -1,5 +1,5 @@
 <?php
-$conf = parse_ini_file('db.ini');
+$conf = parse_ini_file(__DIR__ . '/db.ini', true);
 $conf = YII_ENV == 'dev' ? $conf['dev'] : $conf['prod'];
 
 return [

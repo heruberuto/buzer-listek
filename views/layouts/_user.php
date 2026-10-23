@@ -3,8 +3,8 @@
 /* @var $this \yii\web\View */
 
 use app\models\dao\User;
-use yii\bootstrap\Html;
-use yii\bootstrap\Nav;
+use yii\bootstrap4\Html;
+use yii\bootstrap4\Nav;
 use yii\helpers\Url;
 
 $user = User::logged();
