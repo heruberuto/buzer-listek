@@ -1,6 +1,6 @@
 <?php
 
-use yii\bootstrap\Html;
+use yii\bootstrap4\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */

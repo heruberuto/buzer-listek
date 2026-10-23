@@ -1,12 +1,12 @@
 <?php
 
 /* @var $this yii\web\View */
-/* @var $form yii\bootstrap\ActiveForm */
+/* @var $form yii\bootstrap4\ActiveForm */
 
 /* @var $model app\models\forms\LoginForm */
 
 use yii\authclient\widgets\AuthChoice;
-use yii\bootstrap\ActiveForm;
+use yii\bootstrap4\ActiveForm;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
@@ -32,7 +32,7 @@ $this->params['hideLogin'] = true;
     <?= $form->field($model, 'password')->passwordInput() ?>
 
     <?= $form->field($model, 'rememberMe')->checkbox([
-        'template' => "<div class=\"col-lg-1\"></div><div class=\"col-lg-3\">{input} {label}</div>\n<div class=\"col-lg-8\">{error}</div>",
+        'template' => "<div class=\"col-lg-1\"></div><div class=\"col-lg-3\"><div class=\"custom-control custom-checkbox\">{input} {label}</div></div>\n<div class=\"col-lg-8\">{error}</div>",
     ]) ?>
     <div class="form-group row">
         <div class="col-lg-1"></div>

@@ -7,7 +7,7 @@ use app\models\dao\User;
 use app\models\forms\LoginForm;
 use app\models\forms\SignUpForm;
 use Yii;
-use yii\bootstrap\ActiveForm;
+use yii\bootstrap4\ActiveForm;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;

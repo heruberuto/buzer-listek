@@ -1,7 +1,7 @@
 <?php
 //TODO: rewrite using GridView
 use app\models\dao\Fulfillment;
-use yii\bootstrap\Html;
+use yii\bootstrap4\Html;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 

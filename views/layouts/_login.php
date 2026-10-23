@@ -3,8 +3,8 @@
 /* @var $this \yii\web\View */
 
 use app\models\forms\LoginForm;
-use yii\bootstrap\ActiveForm;
-use yii\bootstrap\Html;
+use yii\bootstrap4\ActiveForm;
+use yii\bootstrap4\Html;
 use yii\helpers\Url;
 
 $model = new LoginForm();

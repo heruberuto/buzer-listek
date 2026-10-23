@@ -2,11 +2,11 @@
 
 use app\models\conditions\Condition;
 use yii\helpers\Html;
-use yii\bootstrap\ActiveForm;
+use yii\bootstrap4\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\dao\Habit */
-/* @var $form yii\bootstrap\ActiveForm */
+/* @var $form yii\bootstrap4\ActiveForm */
 
 $js = <<<JS
 function displayProperForm() {

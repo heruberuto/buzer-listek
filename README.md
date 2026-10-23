@@ -14,10 +14,10 @@ Buzer-lístek is a small Yii2 web app for daily self-management: users create ha
 
 ## Tech stack
 
-- PHP 7+
+- PHP 8.2+ (use a release patched against CVE-2026-109618 / CVE-2026-109619: 8.2.35, 8.3.36, 8.4.27, 8.5.12 or newer)
 - Yii2 (basic app structure)
 - MySQL
-- Bootstrap 4 (legacy beta dependency)
+- Bootstrap 4 (via `yiisoft/yii2-bootstrap4`)
 
 ## Project structure (high level)
 
@@ -52,7 +52,7 @@ Buzer-lístek is a small Yii2 web app for daily self-management: users create ha
 4. (Optional) Set Facebook OAuth credentials in `config/facebook.ini`.
 5. Start the built-in server:
    ```bash
-   php yii serve
+   php yii serve --docroot=@app/www
    ```
 6. Open `http://localhost:8080`.
 
@@ -62,5 +62,6 @@ As part of repository maintenance, embedded API credentials were removed from ve
 
 ## Legacy notes
 
-- The codebase was built for an older Yii2 / PHP ecosystem.
-- Dependency updates and framework upgrades were intentionally not performed in this maintenance pass.
+- The codebase was originally built for an older Yii2 / PHP 7 ecosystem.
+- In October 2026 dependencies were upgraded to current stable releases (Yii 2.0.55, Bootstrap 4.6, Symfony Mailer instead of SwiftMailer) and the minimum PHP version was raised to 8.2.
+- The Codeception tests under `tests/` are leftovers from the Yii basic app template and do not match this application.

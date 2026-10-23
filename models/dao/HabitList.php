@@ -88,6 +88,7 @@ class HabitList extends ActiveRecord
         }
         $this->since = Yii::$app->formatter->asDate($this->since);
         $this->until = Yii::$app->formatter->asDate($this->until);
+        $this->period = $this->since . ' - ' . $this->until;
     }
 
     /**

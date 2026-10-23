@@ -3,8 +3,8 @@
 /* @var $this yii\web\View */
 
 use yii\authclient\widgets\AuthChoice;
-use yii\bootstrap\ActiveForm;
-use yii\bootstrap\Html;
+use yii\bootstrap4\ActiveForm;
+use yii\bootstrap4\Html;
 use yii\helpers\Url;
 
 $this->title = 'Buzer-lístek';

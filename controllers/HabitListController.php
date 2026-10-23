@@ -5,7 +5,7 @@ namespace app\controllers;
 use app\models\dao\Habit;
 use Yii;
 use app\models\dao\HabitList;
-use yii\bootstrap\ActiveForm;
+use yii\bootstrap4\ActiveForm;
 use yii\data\ActiveDataProvider;
 use yii\filters\AccessControl;
 use yii\web\Controller;

@@ -137,7 +137,7 @@ function openCellForm(reference) {
 function tooltipNote(reference) {
     var $ref = $(reference);
     var note = $ref.data('note');
-    $ref.tooltip({container: 'body', title: note, placement: 'bottom'});
+    $ref.tooltip({container: 'body', title: note || '', placement: 'bottom'});
 }
 $(window).on('load', function () {
     $('[data-note]').each(function () {
